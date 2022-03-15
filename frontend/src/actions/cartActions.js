@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as actions from '../constants/cartConstants';
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/products/${id}`);
+  const { data } = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/products/${id}`);
   dispatch({
     type: actions.CART_ADD_REQUEST,
     payload: {

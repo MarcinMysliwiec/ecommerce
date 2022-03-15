@@ -5,7 +5,7 @@ const listProducts = (keyword = '', pageNumber = '') => async (dispatch) => {
   try {
     dispatch({ type: actions.PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get(`/api/products?keyword=${keyword}&pageNumber=${pageNumber}`);
+    const { data } = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/products?keyword=${keyword}&pageNumber=${pageNumber}`);
 
     dispatch({
       type: actions.PRODUCT_LIST_SUCCESS,
@@ -23,7 +23,7 @@ const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: actions.PRODUCT_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/products/${id}`);
 
     dispatch({
       type: actions.PRODUCT_DETAILS_SUCCESS,
@@ -52,7 +52,7 @@ const Productreview = (id, review) => async (dispatch, getState) => {
       },
     };
 
-    await axios.post(`/api/products/${id}/reviews`, review, config);
+    await axios.post(`${process.env.REACT_APP_BACK_URL}/api/products/${id}/reviews`, review, config);
 
     dispatch({
       type: actions.PRODUCT_REVIEW_SUCCESS,
