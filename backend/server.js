@@ -10,11 +10,13 @@ import uploadRoutes from './routes/uploadRoutes.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import morgan from 'morgan';
 import path from 'path';
+import cors from 'cors';
 
 dotenv.config();
 connectDB();
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV === 'development') {
