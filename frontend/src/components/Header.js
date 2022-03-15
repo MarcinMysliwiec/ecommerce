@@ -85,13 +85,11 @@ const Header = ({ history }) => {
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='1' d='M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z' />
                 </svg>
               </Link>
-              {cartItemsNum !== '0' ? (
+              {cartItemsNum !== '0' &&
                 <Label color='orange' circular floating className='cart-lable'>
                   {cartItemsNum}
                 </Label>
-              ) : (
-                false
-              )}
+              }
             </Menu.Item>
           </Menu>
         </div>
@@ -139,7 +137,7 @@ const Header = ({ history }) => {
                 </Dropdown.Menu>
               ) : (
                 <Dropdown.Menu>
-                  <Dropdown.Header>Welcome to Rn Store</Dropdown.Header>
+                  <Dropdown.Header>Welcome to Mr Store</Dropdown.Header>
                   <Dropdown.Item as={Link} to='/login'>
                     Sign In
                   </Dropdown.Item>
