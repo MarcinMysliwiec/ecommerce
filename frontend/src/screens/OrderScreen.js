@@ -46,11 +46,13 @@ const OrderScreen = ({ match, history }) => {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch(getOrderDetails(orderId));
     } else if (!order.isPaid) {
-      if (!window.isPaid) {
-        addPayPalScript();
-      } else {
-        setSdkLoaded(true);
-      }
+      setTimeout(() => { setSdkLoaded(true) }, 1000);
+
+      // if (!window.isPaid) {
+      //   addPayPalScript();
+      // } else {
+      //   setSdkLoaded(true);
+      // }
     }
   }, [dispatch, orderId, userInfo, history, order, paySuccess]);
 
