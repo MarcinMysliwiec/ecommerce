@@ -18,7 +18,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${process.env.REACT_APP_BACK_URL}/api/orders`, order, config);
+    const { data } = await axios.post(`/api/orders`, order, config);
 
     dispatch({
       type: actions.ORDER_CREATE_SUCCESS,
@@ -48,7 +48,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/orders/${id}`, config);
+    const { data } = await axios.get(`/api/orders/${id}`, config);
 
     dispatch({
       type: actions.ORDER_DETAILS_SUCCESS,
@@ -78,7 +78,7 @@ export const getUserOrderList = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/orders/myorders`, config);
+    const { data } = await axios.get(`/api/orders/myorders`, config);
 
     dispatch({
       type: actions.ORDER_LIST_SUCCESS,
@@ -109,7 +109,7 @@ export const updateOrderToPaid = (orderId, paymentResult) => async (dispatch, ge
       },
     };
 
-    const { data } = await axios.put(`${process.env.REACT_APP_BACK_URL}/api/orders/${orderId}/pay`, paymentResult, config);
+    const { data } = await axios.put(`/api/orders/${orderId}/pay`, paymentResult, config);
 
     dispatch({
       type: actions.ORDER_PAY_SUCCESS,

@@ -18,7 +18,7 @@ export const adminUsersList = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/users/`, config);
+    const { data } = await axios.get(`/api/users/`, config);
 
     dispatch({
       type: actions.ADMIN_LIST_USERS_SUCCESS,
@@ -49,7 +49,7 @@ export const adminUserUpdate = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`${process.env.REACT_APP_BACK_URL}/api/users/${user._id}`, user, config);
+    const { data } = await axios.put(`/api/users/${user._id}`, user, config);
 
     dispatch({
       type: actions.ADMIN_UPDATE_USER_SUCCESS,
@@ -85,7 +85,7 @@ export const adminUserDelete = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`${process.env.REACT_APP_BACK_URL}/api/users/${id}`, config);
+    const { data } = await axios.delete(`/api/users/${id}`, config);
 
     dispatch({
       type: actions.ADMIN_DELETE_USER_SUCCESS,
@@ -116,7 +116,7 @@ export const adminProductUpdate = (product) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`${process.env.REACT_APP_BACK_URL}/api/products/${product._id}`, product, config);
+    const { data } = await axios.put(`/api/products/${product._id}`, product, config);
 
     dispatch({
       type: actions.ADMIN_UPDATE_PRODUCT_SUCCESS,
@@ -152,7 +152,7 @@ export const adminProductDelete = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`${process.env.REACT_APP_BACK_URL}/api/products/${id}`, config);
+    const { data } = await axios.delete(`/api/products/${id}`, config);
 
     dispatch({
       type: actions.ADMIN_DELETE_PRODUCT_SUCCESS,
@@ -180,7 +180,7 @@ export const adminProductCreate = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${process.env.REACT_APP_BACK_URL}/api/products/`, {}, config);
+    const { data } = await axios.post(`/api/products/`, {}, config);
 
     dispatch({
       type: actions.ADMIN_CREATE_PRODUCT_SUCCESS,
@@ -209,7 +209,7 @@ export const adminOrdersList = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/orders/`, config);
+    const { data } = await axios.get(`/api/orders/`, config);
 
     dispatch({
       type: actions.ADMIN_LIST_ORDERS_SUCCESS,
@@ -240,7 +240,7 @@ export const updateOrderToDelivered = (orderId) => async (dispatch, getState) =>
       },
     };
 
-    await axios.put(`${process.env.REACT_APP_BACK_URL}/api/orders/${orderId}/delivered`, {}, config);
+    await axios.put(`/api/orders/${orderId}/delivered`, {}, config);
 
     dispatch({
       type: actions.ADMIN_UPDATE_ORDER_TO_DELIVERED_SUCCESS,

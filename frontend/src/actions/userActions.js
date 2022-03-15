@@ -9,7 +9,7 @@ export const login = (email, password) => async (dispatch) => {
       headers: { 'Content-Type': 'application/json' },
     };
 
-    const { data } = await axios.post(`${process.env.REACT_APP_BACK_URL}/api/users/login`, { email, password }, config);
+    const { data } = await axios.post(`/api/users/login`, { email, password }, config);
 
     dispatch({
       type: actions.USER_LOGIN_SUCCESS,
@@ -41,7 +41,7 @@ export const register = (name, email, password) => async (dispatch) => {
       headers: { 'Content-Type': 'application/json' },
     };
 
-    const { data } = await axios.post(`${process.env.REACT_APP_BACK_URL}/api/users/`, { name, email, password }, config);
+    const { data } = await axios.post(`/api/users/`, { name, email, password }, config);
 
     dispatch({
       type: actions.USER_REGISTER_SUCCESS,
@@ -77,7 +77,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/users/${id}`, config);
+    const { data } = await axios.get(`/api/users/${id}`, config);
 
     dispatch({
       type: actions.USER_DETAILS_SUCCESS,
@@ -106,7 +106,7 @@ export const updateUserDetails = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`${process.env.REACT_APP_BACK_URL}/api/users/profile`, user, config);
+    const { data } = await axios.put(`/api/users/profile`, user, config);
 
     dispatch({
       type: actions.USER_UPDATE_SUCCESS,
