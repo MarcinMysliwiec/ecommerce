@@ -36,12 +36,10 @@ const AdminOrderListScreen = ({ history }) => {
     dispatch(updateOrderToDelivered(value));
   };
 
-  return (
-    <div>
-      {loading && <Loader />}
-      {error && <Message error list={error} />}
-      {orders && (
-        <Container style={{ margin: '5rem auto 0' }}>
+  return (<div>
+      {loading && <Loader/>}
+      {error && <Message error list={error}/>}
+      {orders && (<Container style={{ margin: '5rem auto 0' }}>
           <Table compact celled>
             <Table.Header>
               <Table.Row>
@@ -55,50 +53,43 @@ const AdminOrderListScreen = ({ history }) => {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {orders.length !== 0
-                ? orders
-                    .sort((a, b) => b.isDelivered)
-                    .map((order) => (
-                      <Table.Row key={order._id} warning={order.isDelivered && order.isPaid ? false : true} positive={order.isDelivered && order.isPaid ? true : false}>
-                        <Table.Cell>{order._id}</Table.Cell>
-                        <Table.Cell>{order.createdAt.split('T')[0]}</Table.Cell>
-                        <Table.Cell>${order.orderTotal}</Table.Cell>
-                        <Table.Cell>{order.isPaid ? 'Yes' : 'No'}</Table.Cell>
-                        <Table.Cell>{order.isDelivered ? 'Yes' : 'No'}</Table.Cell>
-                        <Table.Cell>
-                          <Button animated basic to={`/orders/${order._id}/delivered`} as={Link} color='black'>
-                            <Button.Content hidden>Details</Button.Content>
+              {orders.length !== 0 ? orders
+                .sort((a, b) => b.isDelivered)
+                .map((order) => (<Table.Row key={order._id} warning={!(order.isDelivered && order.isPaid)}
+                                            positive={order.isDelivered && order.isPaid}>
+                    <Table.Cell>{order._id}</Table.Cell>
+                    <Table.Cell>{order.createdAt.split('T')[0]}</Table.Cell>
+                    <Table.Cell>${order.orderTotal}</Table.Cell>
+                    <Table.Cell>{order.isPaid ? 'Yes' : 'No'}</Table.Cell>
+                    <Table.Cell>{order.isDelivered ? 'Yes' : 'No'}</Table.Cell>
+                    <Table.Cell>
+                      <Button animated basic to={`/orders/${order._id}/delivered`} as={Link} color="black">
+                        <Button.Content hidden>Details</Button.Content>
+                        <Button.Content visible>
+                          <Icon name="info"/>
+                        </Button.Content>
+                      </Button>
+                      {!order.isDelivered && (<Popup
+                          hideOnScroll
+                          trigger={<Button animated basic color="red" loading={loadingDeliver}>
+                            <Button.Content hidden>Ship</Button.Content>
                             <Button.Content visible>
-                              <Icon name='info' />
+                              <Icon name="shipping fast"/>
                             </Button.Content>
-                          </Button>
-                          {!order.isDelivered && (
-                            <Popup
-                              hideOnScroll
-                              trigger={
-                                <Button animated basic color='red' loading={loadingDeliver}>
-                                  <Button.Content hidden>Ship</Button.Content>
-                                  <Button.Content visible>
-                                    <Icon name='shipping fast' />
-                                  </Button.Content>
-                                </Button>
-                              }
-                              content={<Button color='green' content='Confirm' onClick={updateOrderHandler} value={order._id} />}
-                              on='click'
-                              position='top right'
-                            />
-                          )}
-                        </Table.Cell>
-                        <Table.Cell>{order.isDelivered && order.isPaid ? <Icon name='checkmark' /> : <Icon name='x' />}</Table.Cell>
-                      </Table.Row>
-                    ))
-                : null}
+                          </Button>}
+                          content={<Button color="green" content="Confirm" onClick={updateOrderHandler}
+                                           value={order._id}/>}
+                          on="click"
+                          position="top right"
+                        />)}
+                    </Table.Cell>
+                    <Table.Cell>{order.isDelivered && order.isPaid ? <Icon name="checkmark"/> : <Icon
+                      name="x"/>}</Table.Cell>
+                  </Table.Row>)) : null}
             </Table.Body>
           </Table>
-        </Container>
-      )}
-    </div>
-  );
+        </Container>)}
+    </div>);
 };
 
 export default AdminOrderListScreen;

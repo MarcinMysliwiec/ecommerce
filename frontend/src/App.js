@@ -23,33 +23,33 @@ import ScrollToTop from './components/ScrollToTop';
 const App = () => {
   return (
     <Router>
-      <div className='App'>
-        <Header />
+      <div className="App">
+        <Header/>
         <main>
-          <ScrollToTop />
+          <ScrollToTop/>
           <Switch>
-            <Route path='/orders/:id' component={OrderScreen} />
-            <Route path='/placeorder' component={PlaceOrderScreen} />
-            <Route path='/payment' component={PaymentScreen} />
-            <Route path='/shipping' component={ShippingScreen} />
-            <Route path='/profile' component={ProfileScreen} />
-            <Route path='/login' component={LoginScreen} />
-            <Route path='/register' component={RegisterScreen} />
-            <Route path='/admin/userlist' component={AdminUserListScreen} />
-            <Route path='/admin/user/:id' component={AdminUserEditScreen} />
-            <Route path='/admin/productlist' component={AdminProductListScreen} />
-            <Route path='/admin/product/:id' component={AdminProductEditScreen} />
-            <Route path='/admin/orderlist' component={AdminOrderListScreen} />
-            <Route path='/product/:id' component={ProductScreen} />
-            <Route path='/cart/:id?' component={CartScreen} />
-            <Route exact path='/search/:keyword' component={HomeScreen} />
-            <Route exact path='/page/:pageNumber' component={HomeScreen} />
-            <Route exact path='/search/:keyword/page/:pageNumber' component={HomeScreen} />
-            <Route exact path='/' component={HomeScreen} />
-            <Route path='/' component={Page404} />
+            <Route path="/orders/:id" component={OrderScreen}/>
+            <Route path="/placeorder" component={PlaceOrderScreen}/>
+            <Route path="/payment" component={PaymentScreen}/>
+            <Route path="/shipping" component={ShippingScreen}/>
+            <Route path="/profile" component={ProfileScreen}/>
+            <Route path="/login" component={LoginScreen}/>
+            <Route path="/register" component={RegisterScreen}/>
+            <Route path="/admin/userlist" component={AdminUserListScreen}/>
+            <Route path="/admin/user/:id" component={AdminUserEditScreen}/>
+            <Route path="/admin/productlist" component={AdminProductListScreen}/>
+            <Route path="/admin/product/:id" component={AdminProductEditScreen}/>
+            <Route path="/admin/orderlist" component={AdminOrderListScreen}/>
+            <Route path="/product/:id" component={ProductScreen}/>
+            <Route path="/cart/:id?" component={CartScreen}/>
+            <Route exact path="/search/:keyword" component={HomeScreen}/>
+            <Route exact path="/page/:pageNumber" component={HomeScreen}/>
+            <Route exact path="/search/:keyword/page/:pageNumber" component={HomeScreen}/>
+            <Route exact path="/" component={HomeScreen}/>
+            <Route path="/" component={Page404}/>
           </Switch>
         </main>
-        <Footer />
+        <Footer/>
       </div>
     </Router>
   );

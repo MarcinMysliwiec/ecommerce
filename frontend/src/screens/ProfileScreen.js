@@ -38,43 +38,43 @@ const ProfileScreen = ({ history }) => {
 
   return (
     <>
-      <Meta title='Profile' />
+      <Meta title="Profile"/>
       {loading ? (
-        <Loader />
+        <Loader/>
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant="danger">{error}</Message>
       ) : userInfo ? (
-        <div className='profile-Container'>
-          {userLoading && <Loader />}
-          {userError && <Message error list={[userError]} />}
-          {orderError && <Message error list={[orderError]} />}
-          <div className='user'>
-            <div className='profile'>
-              <h1 className='profile__name'>{userInfo.name}</h1>
-              <div className='profile__email'>{userInfo.email}</div>
-              <div className='profile__edit'>
+        <div className="profile-Container">
+          {userLoading && <Loader/>}
+          {userError && <Message error list={[userError]}/>}
+          {orderError && <Message error list={[orderError]}/>}
+          <div className="user">
+            <div className="profile">
+              <h1 className="profile__name">{userInfo.name}</h1>
+              <div className="profile__email">{userInfo.email}</div>
+              <div className="profile__edit">
                 <Modal
                   defaultOpen={false}
                   closeIcon
                   trigger={
-                    <Button animated basic color='black'>
+                    <Button animated basic color="black">
                       <Button.Content hidden>Edit</Button.Content>
                       <Button.Content visible>
-                        <Icon name='edit outline' />
+                        <Icon name="edit outline"/>
                       </Button.Content>
                     </Button>
                   }
-                  content={<ProfileEdit />}
+                  content={<ProfileEdit/>}
                   actions={[{ key: 'save', content: 'Save', positive: true }]}
                 />
               </div>
             </div>
-            <div className='order-Container'>
+            <div className="order-Container">
               <div>
                 <h1>Orders</h1>
                 <p>{orders ? (orders.length > 1 ? `${orders.length} orders` : `${orders.length} order`) : null}</p>
-                <Divider />
-                {orders && orders.map((order) => <UserOrders order={order} key={order._id} loading={orderLoading} />)}
+                <Divider/>
+                {orders && orders.map((order) => <UserOrders order={order} key={order._id} loading={orderLoading}/>)}
               </div>
             </div>
           </div>

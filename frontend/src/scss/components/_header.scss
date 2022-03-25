@@ -14,28 +14,33 @@
     &__logo {
       margin-right: 2rem;
     }
+
     .ui.input > input {
       background-color: #e7e7e787 !important;
       border: none !important;
     }
+
     .ui.basic.button {
       background-color: #e7e7e787 !important;
       border: none;
       box-shadow: none;
     }
+
     &__search {
       margin-right: auto;
       gap: 0.5rem;
       padding: 0.4rem;
       width: 25rem;
     }
+
     .ui.menu {
       border: 0;
       box-shadow: none;
       border-radius: 0;
     }
+
     .ui.menu .item {
-      padding: 0px 10px 0;
+      padding: 0 10px;
       cursor: default;
     }
 
@@ -51,11 +56,13 @@
       margin-left: 1rem;
       font-size: 1.2rem;
       cursor: pointer;
+
       svg {
         position: relative;
         top: 5px;
         margin: 0 auto;
       }
+
       .ui.dropdown .menu .active.item,
       .ui.dropdown .menu .selected.item,
       .ui.dropdown.selected {

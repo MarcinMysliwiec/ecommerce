@@ -32,32 +32,32 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <>
-      <Meta title='Cart' />
-      <div className='cart-container'>
+      <Meta title="Cart"/>
+      <div className="cart-container">
         {cartItems.length === 0 ? (
-          <CartEmpty />
+          <CartEmpty/>
         ) : (
           <>
             <header>
               <Breadcrumb>
-                <Breadcrumb.Section as={Link} to='/'>
+                <Breadcrumb.Section as={Link} to="/">
                   Home
                 </Breadcrumb.Section>
-                <Breadcrumb.Divider />
+                <Breadcrumb.Divider/>
                 <Breadcrumb.Section>Cart</Breadcrumb.Section>
               </Breadcrumb>
               <h1>Your Cart</h1>
             </header>
             <div>
               {cartItems.map((e) => (
-                <CartItems key={e.product} items={e} />
+                <CartItems key={e.product} items={e}/>
               ))}
             </div>
-            <div className='cart-subtotal'>
+            <div className="cart-subtotal">
               <h4>
                 SubTotal: <span style={{ fontWeight: 'normal', float: 'right' }}>${subTotal}</span>
               </h4>
-              <Button color='black' type='button' onClick={checkoutHandler}>
+              <Button color="black" type="button" onClick={checkoutHandler}>
                 Proceed to checkout
               </Button>
             </div>

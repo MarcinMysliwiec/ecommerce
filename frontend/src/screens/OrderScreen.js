@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -30,23 +30,23 @@ const OrderScreen = ({ match, history }) => {
       history.push('/login');
     }
 
-    const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get('/api/config/paypal');
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
-      script.async = true;
-      script.onload = () => {
-        setSdkLoaded(true);
-      };
-      document.body.appendChild(script);
-    };
+    // const addPayPalScript = async () => {
+    //   const { data: clientId } = await axios.get('/api/config/paypal');
+    //   const script = document.createElement('script');
+    //   script.type = 'text/javascript';
+    //   script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
+    //   script.async = true;
+    //   script.onload = () => {
+    //     setSdkLoaded(true);
+    //   };
+    //   document.body.appendChild(script);
+    // };
 
     if (!order || paySuccess || order._id !== orderId) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch(getOrderDetails(orderId));
     } else if (!order.isPaid) {
-      setTimeout(() => { setSdkLoaded(true) }, 1000);
+      setTimeout(() => { setSdkLoaded(true); }, 1000);
 
       // if (!window.isPaid) {
       //   addPayPalScript();
@@ -73,21 +73,21 @@ const OrderScreen = ({ match, history }) => {
   };
 
   return loading ? (
-    <Loader />
+    <Loader/>
   ) : error ? (
-    <Page404 />
+    <Page404/>
   ) : (
-    <div className='order-container'>
-      <Meta title='Order' />
-      <div className='order-details'>
+    <div className="order-container">
+      <Meta title="Order"/>
+      <div className="order-details">
         {order.isPaid ? (
           <h2>
-            Thank you! <br />
+            Thank you! <br/>
             Your order has been placed.
           </h2>
         ) : (
           <h2>
-            Thank you! <br />
+            Thank you! <br/>
             Your order has been received.
           </h2>
         )}
@@ -114,7 +114,7 @@ const OrderScreen = ({ match, history }) => {
 
         <h4>Payment Information</h4>
         <div>
-          Payment method: <Icon className='paypal card' size='large' />
+          Payment method: <Icon className="paypal card" size="large"/>
           {order.paymentMethod}
         </div>
         <div>
@@ -131,33 +131,33 @@ const OrderScreen = ({ match, history }) => {
           )}
         </div>
 
-        <Divider style={{ borderTop: '1px solid rgba(91, 14, 22, 0.1)' }} />
+        <Divider style={{ borderTop: '1px solid rgba(91, 14, 22, 0.1)' }}/>
 
         <h2>Order Items</h2>
         {order.orderItems.map((e) => (
-          <OrderItems key={e.product} items={e} />
+          <OrderItems key={e.product} items={e}/>
         ))}
       </div>
-      <div className='order-summary'>
+      <div className="order-summary">
         <h2>Order Summary</h2>
-        <div className='order-summary__amount'>
-          <Table basic='very' unstackable>
+        <div className="order-summary__amount">
+          <Table basic="very" unstackable>
             <Table.Body>
               <Table.Row>
                 <Table.Cell>Items:</Table.Cell>
-                <Table.Cell textAlign='right'>${order.itemsPrice}</Table.Cell>
+                <Table.Cell textAlign="right">${order.itemsPrice}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>Shipping & handling:</Table.Cell>
-                <Table.Cell textAlign='right'> ${order.shippingCost}</Table.Cell>
+                <Table.Cell textAlign="right"> ${order.shippingCost}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>Tax:</Table.Cell>
-                <Table.Cell textAlign='right'> ${order.taxPrice}</Table.Cell>
+                <Table.Cell textAlign="right"> ${order.taxPrice}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>Total:</Table.Cell>
-                <Table.Cell textAlign='right'>${order.orderTotal}</Table.Cell>
+                <Table.Cell textAlign="right">${order.orderTotal}</Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table>
@@ -166,14 +166,15 @@ const OrderScreen = ({ match, history }) => {
           <div>
             <Message style={{ background: 'none' }}>
               <p>
-                User Email: <input style={inputStyle} defaultValue='john@m.com' />
+                User Email: <input style={inputStyle} defaultValue="john@m.com"/>
               </p>
               <p>
-                Password: <input style={inputStyle} defaultValue='12345678' />
+                Password: <input style={inputStyle} defaultValue="12345678"/>
               </p>
             </Message>
-            {payLoading && <InlineLoader active inline='centered' />}
-            {!sdkLoaded ? <InlineLoader active inline='centered' /> : <PayPalButton amount={order.orderTotal} onSuccess={successPaymentHandler} />}
+            {payLoading && <InlineLoader active inline="centered"/>}
+            {!sdkLoaded ? <InlineLoader active inline="centered"/> : <PayPalButton amount={order.orderTotal}
+                                                                                   onSuccess={successPaymentHandler}/>}
           </div>
         )}
       </div>

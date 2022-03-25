@@ -2,7 +2,7 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Toast(msg) {
+function Toast (msg) {
   console.log(msg);
   toast.error(`❕ ${msg}`, {
     position: 'bottom-right',
@@ -14,6 +14,7 @@ function Toast(msg) {
     progress: undefined,
   });
 
-  return <ToastContainer />;
+  return <ToastContainer/>;
 }
+
 export default Toast;

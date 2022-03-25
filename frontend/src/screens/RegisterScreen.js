@@ -54,25 +54,28 @@ const RegisterScreen = ({ history, location }) => {
 
   return (
     <>
-      <Meta title={'Register'} />
-      <ToastContainer />
+      <Meta title={'Register'}/>
+      <ToastContainer/>
       <FormContainer>
         <h1>Create your account</h1>
         <Form onSubmit={(e) => submitHandler(e)}>
-          <Form.Input size='large' icon='user' iconPosition='left' label='Name' placeholder='Name' onChange={(e) => setName(e.target.value)} required />
-          <Form.Input size='large' icon='at' iconPosition='left' label='Email Address' type='email' placeholder='Email Address' onChange={(e) => setEmail(e.target.value)} required />
-          <Form.Input size='large' icon='lock' iconPosition='left' label='Password' type='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} required />
+          <Form.Input size="large" icon="user" iconPosition="left" label="Name" placeholder="Name"
+                      onChange={(e) => setName(e.target.value)} required/>
+          <Form.Input size="large" icon="at" iconPosition="left" label="Email Address" type="email"
+                      placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} required/>
+          <Form.Input size="large" icon="lock" iconPosition="left" label="Password" type="password"
+                      placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
           <Form.Input
-            size='large'
-            icon='lock'
-            iconPosition='left'
-            label='Confirm Password'
-            type='password'
-            placeholder='Confirm Password'
+            size="large"
+            icon="lock"
+            iconPosition="left"
+            label="Confirm Password"
+            type="password"
+            placeholder="Confirm Password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          <Button color='black' type='submit' style={{ width: '100%' }} loading={loading}>
+          <Button color="black" type="submit" style={{ width: '100%' }} loading={loading}>
             Submit
           </Button>
         </Form>

@@ -12,6 +12,7 @@
     height: auto;
     display: block;
   }
+
   .ui .comments .review__comment {
     max-width: 1400px;
   }
@@ -33,6 +34,7 @@
         padding: 0 !important;
         margin: 0 !important;
       }
+
       .product__price {
         font-size: 1.5rem;
         font-weight: 500;
@@ -44,28 +46,32 @@
         max-width: 30vw;
         color: #555555;
       }
+
       .product__form {
         display: flex;
         justify-content: flex-start;
         margin-bottom: 1rem;
         gap: 1rem;
+
         .ui.form {
           width: 9.56rem;
         }
 
         .ui.selection.dropdown {
-          border-radius: 0%;
+          border-radius: 0;
           min-width: 9.57rem;
         }
       }
+
       .product__social > * {
         margin-right: 1rem;
       }
 
       Button {
-        margin-left: 0rem;
+        margin-left: 0;
         height: 2.712rem;
       }
+
       @media screen and (max-width: 990px) {
         .product__detail {
           max-width: 50vw;
@@ -74,6 +80,7 @@
       }
     }
   }
+
   .review {
     display: flex;
     flex-direction: column;
@@ -84,16 +91,20 @@
     & > div {
       max-width: 100% !important;
     }
+
     .ui.comments .comment {
       margin-bottom: 1rem;
     }
+
     .metadata {
       margin-bottom: 0.7rem !important;
       margin-left: 0 !important;
     }
+
     .metadata div {
       margin-top: 0.7rem !important;
     }
+
     .ui.comments .comment .metadata > span {
       margin: 0;
     }
@@ -101,14 +112,17 @@
     .review-rating {
       margin: 0 3rem 1rem;
     }
+
     .ui.form textarea {
       max-width: 90% !important;
       max-height: 100px !important;
       margin: 0 3rem;
     }
+
     Button {
       margin: 0 3rem;
     }
+
     .review__span {
       margin: 0 3rem 1rem;
     }
@@ -123,6 +137,7 @@
       .product__info {
         order: 2;
       }
+
       .product__detail {
         max-width: 100%;
       }
@@ -133,6 +148,7 @@
         .ui.form {
           width: 100%;
         }
+
         .ui.selection.dropdown {
           min-width: 100%;
         }
@@ -155,10 +171,12 @@
       & > div {
         max-width: 100% !important;
       }
+
       .product__review .comment {
         display: flex;
         flex-direction: column;
       }
+
       .ui.comments .comment > .avatar ~ .content {
         margin: 1.1rem 0 !important;
       }
@@ -167,13 +185,16 @@
         width: 100% !important;
         margin: 0;
       }
+
       .ui.form textarea {
         max-width: 100% !important;
         margin: 0;
       }
+
       .review-rating {
         margin: 0 0 1rem;
       }
+
       .review__span {
         margin: 0 0 1rem;
       }

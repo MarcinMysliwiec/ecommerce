@@ -27,14 +27,17 @@ const PaymentScreen = ({ history }) => {
 
   return (
     <>
-      <OrderSteps step={'billing'} />
+      <OrderSteps step={'billing'}/>
       <FormContainer>
         <h1>Selected Payment Method</h1>
         <Form onSubmit={(e) => submitHandler(e)}>
-          <Form.Field control={Radio} label='PayPal or Credit Card' checked={paymentMethod === 'PayPal'} value='PayPal' onClick={() => setPaymentMethod('PayPal')} />
-          <Form.Field control={Radio} label='Apple Pay ' checked={paymentMethod === 'applePay'} value='applePay' onClick={() => setPaymentMethod('applePay')} disabled />
-          <Form.Field control={Radio} label='Amazon Pay ' checked={paymentMethod === 'amazonPay'} value='amazonPay' onClick={() => setPaymentMethod('amazonPay')} disabled />
-          <Button color='black' type='submit' style={{ width: '100%', marginTop: '2rem' }}>
+          <Form.Field control={Radio} label="PayPal or Credit Card" checked={paymentMethod === 'PayPal'} value="PayPal"
+                      onClick={() => setPaymentMethod('PayPal')}/>
+          <Form.Field control={Radio} label="Apple Pay " checked={paymentMethod === 'applePay'} value="applePay"
+                      onClick={() => setPaymentMethod('applePay')} disabled/>
+          <Form.Field control={Radio} label="Amazon Pay " checked={paymentMethod === 'amazonPay'} value="amazonPay"
+                      onClick={() => setPaymentMethod('amazonPay')} disabled/>
+          <Button color="black" type="submit" style={{ width: '100%', marginTop: '2rem' }}>
             Continue
           </Button>
         </Form>

@@ -7,8 +7,9 @@
   max-width: 1400px;
 
   header {
-    padding: 1rem 0rem 3rem;
+    padding: 1rem 0 3rem;
   }
+
   .cart {
     display: flex;
     flex-direction: row;
@@ -40,10 +41,12 @@
         text-overflow: ellipsis;
         overflow: hidden;
       }
+
       &__price {
         font-weight: 500;
         font-size: 1.2rem;
       }
+
       &__form {
         display: flex;
         flex-direction: row;
@@ -54,15 +57,17 @@
         }
 
         .ui.selection.dropdown {
-          border-radius: 0%;
+          border-radius: 0;
           min-width: 9.5rem;
         }
+
         Button {
           height: 2.7rem;
         }
       }
     }
   }
+
   .cart-subtotal {
     display: flex;
     flex-direction: column;
@@ -95,6 +100,7 @@
           text-overflow: ellipsis;
           overflow: hidden;
         }
+
         &__price {
           font-weight: 500;
           font-size: 1rem;
@@ -105,7 +111,7 @@
           width: 100%;
 
           .ui.selection.dropdown {
-            border-radius: 0%;
+            border-radius: 0;
             min-width: 7.57rem;
           }
         }
@@ -131,9 +137,10 @@
           }
 
           .ui.selection.dropdown {
-            border-radius: 0%;
+            border-radius: 0;
             min-width: 5.57rem;
           }
+
           Button {
             height: 2.7rem;
           }
@@ -142,6 +149,7 @@
     }
     .cart-subtotal {
       width: 100%;
+
       Button {
         width: 100%;
       }

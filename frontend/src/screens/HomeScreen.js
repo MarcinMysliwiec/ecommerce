@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
 import Meta from '../components/Meta';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const HomeScreen = ({ match }) => {
@@ -37,27 +37,29 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
-      <Meta title='Welcome' />
+      <Meta title="Welcome"/>
       {loading ? (
-        <Loader />
+        <Loader/>
       ) : error ? (
         <div>
-          <Message style={{ margin: '0 auto', width: '50%' }} error header='Something went wrong. Please try again' list={[error]} />
+          <Message style={{ margin: '0 auto', width: '50%' }} error header="Something went wrong. Please try again"
+                   list={[error]}/>
         </div>
       ) : (
-        <div className='product-card'>
+        <div className="product-card">
           {keyword && !productList.products.length && (
-            <Message style={{ margin: '5rem auto', width: '50%' }} header={`No results for ${keyword}`} content='Try checking your spelling or use more general terms' />
+            <Message style={{ margin: '5rem auto', width: '50%' }} header={`No results for ${keyword}`}
+                     content="Try checking your spelling or use more general terms"/>
           )}
-          <div className='card-container'>
+          <div className="card-container">
             {products
               .sort((a, b) => b.price - a.price)
               .filter((r) => r.name !== 'Sample name')
               .map((product) => (
-                <Product product={product} key={product._id} />
+                <Product product={product} key={product._id}/>
               ))}
           </div>
-          <Paginate totalPages={totalPages} selectedPage={selectedPage} keyword={keyword} />
+          <Paginate totalPages={totalPages} selectedPage={selectedPage} keyword={keyword}/>
         </div>
       )}
     </>

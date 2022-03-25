@@ -49,11 +49,11 @@ const AdminProductListScreen = ({ history, match }) => {
 
   return (
     <div>
-      {loading && <Loader />}
-      {error && <Message error list={error} />}
+      {loading && <Loader/>}
+      {error && <Message error list={error}/>}
       {products && (
         <Container>
-          <Button color='black' style={{ margin: '5rem 0 1rem', float: 'right' }} onClick={createProductHandler}>
+          <Button color="black" style={{ margin: '5rem 0 1rem', float: 'right' }} onClick={createProductHandler}>
             Create Product
           </Button>
           <Table compact celled>
@@ -78,32 +78,33 @@ const AdminProductListScreen = ({ history, match }) => {
                       <Button animated basic to={`/admin/product/${product._id}`} as={Link}>
                         <Button.Content hidden>Edit</Button.Content>
                         <Button.Content visible>
-                          <Icon name='edit outline' />
+                          <Icon name="edit outline"/>
                         </Button.Content>
                       </Button>
                       <Popup
                         hideOnScroll
                         trigger={
-                          <Button animated basic color='red'>
+                          <Button animated basic color="red">
                             <Button.Content hidden>Delete</Button.Content>
                             <Button.Content visible>
                               <Icon.Group>
-                                <Icon name='shopping basket' />
-                                <Icon corner='bottom right' name='x' />
+                                <Icon name="shopping basket"/>
+                                <Icon corner="bottom right" name="x"/>
                               </Icon.Group>
                             </Button.Content>
                           </Button>
                         }
-                        content={<Button color='green' content='Confirm Deletion' onClick={deleteProductHandler} value={product._id} />}
-                        on='click'
-                        position='top right'
+                        content={<Button color="green" content="Confirm Deletion" onClick={deleteProductHandler}
+                                         value={product._id}/>}
+                        on="click"
+                        position="top right"
                       />
                     </Table.Cell>
                   </Table.Row>
                 ))}
             </Table.Body>
           </Table>
-          <Paginate totalPages={totalPages} selectedPage={selectedPage} />
+          <Paginate totalPages={totalPages} selectedPage={selectedPage}/>
         </Container>
       )}
     </div>

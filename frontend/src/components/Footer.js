@@ -31,18 +31,18 @@ const Footer = () => {
           </Grid.Column>
           <Grid.Column mobile={16} tablet={4} computer={4}>
             <h4>FOLLOW US</h4>
-            <Icon name='twitter' size='large' color='black' inverted />
-            <Icon name='github' size='large' color='black' inverted />
-            <Icon name='instagram' size='large' color='black' inverted />
-            <Icon name='facebook' size='large' color='black' inverted />
+            <Icon name="twitter" size="large" color="black" inverted/>
+            <Icon name="github" size="large" color="black" inverted/>
+            <Icon name="instagram" size="large" color="black" inverted/>
+            <Icon name="facebook" size="large" color="black" inverted/>
           </Grid.Column>
         </Grid>
       </Container>
       <footer>
-        <div className='footer__copyright'>
+        <div className="footer__copyright">
           &copy;{new Date().getFullYear()} <strong>Mr Store</strong>. All rights reserved.
         </div>
-        <div className='footer__links'>
+        <div className="footer__links">
           <ul>
             <li>Privacy Policy</li>
             <li>Terms of Use</li>

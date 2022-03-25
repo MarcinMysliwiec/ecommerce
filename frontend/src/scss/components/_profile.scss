@@ -9,6 +9,7 @@
     font-weight: normal;
     font-size: 1.2rem;
   }
+
   .user {
     .profile {
       height: 150px;
@@ -21,17 +22,21 @@
       &__name {
         color: #414141;
       }
+
       &__edit {
         margin-right: 0;
         margin-left: auto;
       }
     }
+
     .ui.empty.circular.label,
     .ui.empty.circular.labels .label {
       margin-right: 0.5rem;
     }
+
     .order-Container {
       padding: 2rem;
+
       .order {
         display: flex;
         justify-content: space-between;
@@ -47,6 +52,7 @@
           min-width: 200px;
         }
       }
+
       @media screen and (max-width: 350px) {
         padding: 0 1rem;
         .order {

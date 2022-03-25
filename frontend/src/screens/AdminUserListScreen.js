@@ -33,8 +33,8 @@ const AdminUserListScreen = ({ history }) => {
 
   return (
     <div>
-      {loading && <Loader />}
-      {error && <Message error list={error} />}
+      {loading && <Loader/>}
+      {error && <Message error list={error}/>}
       {users && (
         <Table compact celled style={{ maxWidth: '80%', margin: '5rem auto 0' }}>
           <Table.Header>
@@ -49,35 +49,36 @@ const AdminUserListScreen = ({ history }) => {
           <Table.Body>
             {users.length !== 0
               ? users.map((user) => (
-                  <Table.Row key={user._id}>
-                    <Table.Cell>{user.name}</Table.Cell>
-                    <Table.Cell>{user.createdAt.split('T')[0]}</Table.Cell>
-                    <Table.Cell>{user.email}</Table.Cell>
-                    <Table.Cell>{user.isAdmin ? 'Yes' : 'No'}</Table.Cell>
-                    <Table.Cell collapsing>
-                      <Button animated basic to={`/admin/user/${user._id}`} as={Link}>
-                        <Button.Content hidden>Edit</Button.Content>
-                        <Button.Content visible>
-                          <Icon name='edit outline' />
-                        </Button.Content>
-                      </Button>
-                      <Popup
-                        hideOnScroll
-                        trigger={
-                          <Button animated basic color='red'>
-                            <Button.Content hidden>Delete</Button.Content>
-                            <Button.Content visible>
-                              <Icon name='user delete' />
-                            </Button.Content>
-                          </Button>
-                        }
-                        content={<Button color='green' content='Confirm Deletion' onClick={deleteUserHandler} value={user._id} />}
-                        on='click'
-                        position='top right'
-                      />
-                    </Table.Cell>
-                  </Table.Row>
-                ))
+                <Table.Row key={user._id}>
+                  <Table.Cell>{user.name}</Table.Cell>
+                  <Table.Cell>{user.createdAt.split('T')[0]}</Table.Cell>
+                  <Table.Cell>{user.email}</Table.Cell>
+                  <Table.Cell>{user.isAdmin ? 'Yes' : 'No'}</Table.Cell>
+                  <Table.Cell collapsing>
+                    <Button animated basic to={`/admin/user/${user._id}`} as={Link}>
+                      <Button.Content hidden>Edit</Button.Content>
+                      <Button.Content visible>
+                        <Icon name="edit outline"/>
+                      </Button.Content>
+                    </Button>
+                    <Popup
+                      hideOnScroll
+                      trigger={
+                        <Button animated basic color="red">
+                          <Button.Content hidden>Delete</Button.Content>
+                          <Button.Content visible>
+                            <Icon name="user delete"/>
+                          </Button.Content>
+                        </Button>
+                      }
+                      content={<Button color="green" content="Confirm Deletion" onClick={deleteUserHandler}
+                                       value={user._id}/>}
+                      on="click"
+                      position="top right"
+                    />
+                  </Table.Cell>
+                </Table.Row>
+              ))
               : null}
           </Table.Body>
         </Table>

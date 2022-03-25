@@ -22,6 +22,7 @@ p {
   color: #414141 !important;
   font-weight: 300;
 }
+
 a {
   color: #414141 !important;
 }
@@ -48,6 +49,7 @@ button,
   font-weight: 400 !important;
   font-size: 1.2rem !important;
 }
+
 .ui.button {
   font-weight: 400 !important;
   text-transform: uppercase !important;
@@ -63,9 +65,11 @@ button,
 .ui.steps .step.active {
   background-color: #f3f3f3 !important;
 }
+
 .ui.steps .step {
   padding: 0.8rem 1rem !important;
 }
+
 .ui.steps .step.active .title {
   color: #414141 !important;
 }
@@ -132,6 +136,7 @@ button,
 .ui.secondary.pointing.menu {
   border-bottom: none !important;
 }
+
 .Toastify__toast {
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }

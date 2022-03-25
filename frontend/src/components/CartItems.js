@@ -17,29 +17,33 @@ const CartItems = ({ items }) => {
 
   return (
     <>
-      <div className='cart'>
-        <div className='cart-image'>
+      <div className="cart">
+        <div className="cart-image">
           <Link to={`/product/${items.product}`}>
-            <img src={items.image} alt='' />
+            <img src={items.image} alt=""/>
           </Link>
         </div>
-        <div className='cart-items'>
-          <div className='cart-items__name'>{items.name}</div>
-          <div className='cart-items__price'>
+        <div className="cart-items">
+          <div className="cart-items__name">{items.name}</div>
+          <div className="cart-items__price">
             {items.qty} x ${items.price}
           </div>
 
-          <Form className='cart-items__form'>
-            <Form.Field onChange={getQty} control={Select} options={[...Array(items.numInStock).keys()].map((p) => ({ text: `${p + 1}`, value: `${p + 1}` }))} defaultValue={String(items.qty)} />
+          <Form className="cart-items__form">
+            <Form.Field onChange={getQty} control={Select} options={[...Array(items.numInStock).keys()].map((p) => ({
+              text: `${p + 1}`,
+              value: `${p + 1}`
+            }))} defaultValue={String(items.qty)}/>
             <Popup
-              content='Remove From Cart'
+              content="Remove From Cart"
               style={{ boxShadow: 'none', borderRadius: '0' }}
-              trigger={<Button icon='remove' size='small' basic type='button' disabled={items.numInStock === 0} className='cart-items__remove' onClick={() => removeFromCartHandler(items.product)} />}
+              trigger={<Button icon="remove" size="small" basic type="button" disabled={items.numInStock === 0}
+                               className="cart-items__remove" onClick={() => removeFromCartHandler(items.product)}/>}
             />
           </Form>
         </div>
       </div>
-      <Divider />
+      <Divider/>
     </>
   );
 };
